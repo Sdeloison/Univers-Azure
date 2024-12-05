@@ -1,8 +1,6 @@
 ## Blog 2 : Azure Arc – Le Retour aux Sources
 
-
-
-![](https://universazure.fr/wp-content/uploads/2023/03/image-16.png?w=975)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-16.png?w=975)
 
 ## Intro:
 
