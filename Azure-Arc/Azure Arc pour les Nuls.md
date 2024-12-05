@@ -1,7 +1,10 @@
-# Blog 2 : Azure Arc – Le Retour aux Sources
+## Blog 2 : Azure Arc – Le Retour aux Sources
 
 
-#  Intro:
+
+![](https://universazure.fr/wp-content/uploads/2023/03/image-16.png?w=975)
+
+## Intro:
 
 Humblement j’ai revu mes Target à la baisse, en effet lors de mes 1 er test d’utilisation d’Azure Arc Jumpbox ; je me suis rendue compte que je ne maitrise pas toutes les briques . 😕
 
@@ -17,18 +20,19 @@ Celui de Stanislas Quastana ( en FR) et celui de Thomas Maurer (en Uk) ; je les 
 
 Ce post sera découpé en 3 parties :
 
- - Step 1 : Rappel de ce qu’est Azure Arc.
- - Step 2 : Les prérequis et leur mise en place.   
- - Step 3 : Le deployment d’ Azure Arc Enabled Server
+Step 1 : Rappel de ce qu’est Azure Arc.
+
+Step 2 : Les prérequis et leur mise en place.
+
+Step 3 : Le deployment d’ Azure Arc Enabled Server
 
 ## Step 1: Mais qu’ est-ce donc qu’ Azure Arc ?
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
-
-## Rename a file
-
 Azure Arc est un service Microsoft Azure , accessible via le portail et managé depuis ce dernier.
-*Image insert*
+
+![](https://universazure.fr/wp-content/uploads/2023/03/image.png?w=833)
+
+_Image 1_
 
 La fonction d’Azure Arc est de manage , et suivre un ensemble de composant tel que :
 
@@ -52,8 +56,10 @@ Les principaux composant qu’ Azure Arc manage sont les suivant :
 10.  Azure Arc enabled SCVMM
 
 Je me fais force de vous faire un article pour chaque un de ces éléments, et en fonction de mes moyens.
-*Image insert*
 
+![](https://universazure.fr/wp-content/uploads/2023/03/image-1.png?w=189)
+
+_Image 2_
 
 ## Step 2 : Les prérequis et leur mise en place.
 
@@ -79,9 +85,10 @@ Les serveurs avec Azure Arc prennent en charge l’installation de l’agent Con
 
 REM : Vous ne devez pas installer Azure Arc sur des machines virtuelles hébergées dans Azure, Azure Stack Hub ou Azure Stack Edge, car elles disposent déjà de fonctionnalités similaires.
 
-*Insert Image*
+![](https://universazure.fr/wp-content/uploads/2023/03/image-2.png?w=930)
 
 ### Systèmes d’exploitation pris en charge
+
 Azure Arc prend en charge les systèmes d’exploitation Windows et Linux suivants. Seules les architectures x86-64 (64 bits) sont prises en charge. Azure Arc ne s’exécute pas sur des architectures x86 (32 bits) ou ARM.
 
 -   Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019 et 2022
@@ -140,8 +147,12 @@ Pour utiliser des serveurs Azure Arc, les Azure ressources providers suivants do
 -   **Microsoft.HybridConnectivity**
 -   **Microsoft.AzureArcData** (si vous envisagez d’activer Les serveurs SQL)
 
-*Insert Image*
-##  Step 3 : Deployment Azure Arc enabled server
+![](https://universazure.fr/wp-content/uploads/2023/03/image-5.png?w=697)
+
+_Image 4_
+
+## Step 3 : Deployment Azure Arc enabled server
+
 REM: les autres aspects des déploiement d’Azure Arc , serons traite dans mes autres articles.
 
 ### Scenario :
@@ -179,6 +190,8 @@ Step 8 : vérification de l’ajout dans Azure Arc.
 Step 1: Ouvrir le portail Azure
 
 Step 2 : sélectionner Azure Arc
+
+![](https://universazure.fr/wp-content/uploads/2023/03/image-6.png?w=975)
 
 Step 3 : Select : “ Add your infra for Free “
 
@@ -223,4 +236,3 @@ Et voila nous venons de faire un Onboarding de server dans Azure Arc.
 Je vous présenterais dans mon Blog Suivant les aspects que Azure Arc permet de faire sur les éléments déployer : Azure Policies, …..
 
 A Bientôt pour continuer la découverte de l’Univers Azure Arc !!
-
