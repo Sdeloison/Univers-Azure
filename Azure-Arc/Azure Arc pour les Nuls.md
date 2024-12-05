@@ -29,10 +29,7 @@ Step 3 : Le deployment d’ Azure Arc Enabled Server
 ## Step 1: Mais qu’ est-ce donc qu’ Azure Arc ?
 
 Azure Arc est un service Microsoft Azure , accessible via le portail et managé depuis ce dernier.
-
-![](https://universazure.fr/wp-content/uploads/2023/03/image.png?w=833)
-
-_Image 1_
+![](assets/image.png?w=833)
 
 La fonction d’Azure Arc est de manage , et suivre un ensemble de composant tel que :
 
