@@ -1,9 +1,9 @@
-Introduction:
+#Introduction:
 
 Cette rubrique va contenir un ensemble de présentation pour accompagner la découverte et la mise en œuvre d’Azure Arc.
 
 
-Planning des post:
+#Planning des post:
 
 Part 1: Introduction à Azure Arc – Ce Post
 
@@ -17,7 +17,7 @@ Part 5 : La sécurité et Azure Arc – Un spécial Sécu
 
 part 6: Et Après? – A suivre !
 
-Part 1 : Introduction à Azure Arc :
+#Part 1 : Introduction à Azure Arc :
 
 Cette partie sera découper en 3 volets :
 
