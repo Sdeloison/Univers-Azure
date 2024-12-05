@@ -1,232 +1,188 @@
-## Blog 2 : Azure Arc – Le Retour aux Sources
+# Azure Arc pour les Nuls (Ou plutôt Pour moi 😉):
 
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-16.png?w=975)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/12/arc.png?w=987)
 
-## Intro:
+Azure Arc
 
-Humblement j’ai revu mes Target à la baisse, en effet lors de mes 1 er test d’utilisation d’Azure Arc Jumpbox ; je me suis rendue compte que je ne maitrise pas toutes les briques . 😕
+## Introduction:
 
-J’ai donc décidé de reprendre les bases et de déployé une solution Azure Arc mais de manière maitrisés. 😋
+Cette rubrique va contenir un ensemble de présentation pour accompagner la découverte et la mise en œuvre d’Azure Arc.
 
-Il y aura à la suite de ce Blog 2 le retour , plusieurs autres sur les déploiements des composant de la familles Azure Arc.
+## Planning des post:
 
-Pour arrive à ce résultats , je me suis inspire des blogs de mes 2 mentors sur cet Techno :
+Part 1: Introduction à Azure Arc – Ce Post
 
-Celui de Stanislas Quastana ( en FR) et celui de Thomas Maurer (en Uk) ; je les remercies pour leur travailles et l’inspiration qu’ils m’ont apportés.
+Part 2: la mise en place d Azure Arc – Les 4 blocks ( donc 4 post 😁)
 
-## Planning :
+Part 3 : les options d’Azure Arc -
 
-Ce post sera découpé en 3 parties :
+Part 4 : Les usage - Les scenarios et pour qui ? – exemple de scenario possible ( PME…)
 
-Step 1 : Rappel de ce qu’est Azure Arc.
+Part 5 : La sécurité et Azure Arc – Un spécial Sécu
 
-Step 2 : Les prérequis et leur mise en place.
+part 6: Et Après? – A suivre !
 
-Step 3 : Le deployment d’ Azure Arc Enabled Server
+## Part 1 : Introduction à Azure Arc :
 
-## Step 1: Mais qu’ est-ce donc qu’ Azure Arc ?
+Cette partie sera découper en 3 volets :
 
-Azure Arc est un service Microsoft Azure , accessible via le portail et managé depuis ce dernier.
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image.png?w=833)
+-   Qu’est-ce que Azure Arc
+-   A quoi sert-il ? On parleras des 4 poles d'utilisations
+-   Les licences
 
-La fonction d’Azure Arc est de manage , et suivre un ensemble de composant tel que :
+### Qu’est-ce que Azure Arc?
 
--   Les service Azure type VM et SQL
--   Les autres Cloud : AWS, ou GCP.
--   Mais aussi des composant 100% on-Premise : type VMWare , ou Hyper-V.
+Azure Arc est une solution Microsoft permettant de gère et d’étendre les service Azure n’importe ou.
 
-On parle donc ici de **Solution de management Hybride** .
+Azure Arc va nous aider à déployer ,construire des applications en mode Hybrid ( Onpremise) , Multicloud( Support AWS… ) , et en mode Natif ( Azure ).
 
-Les principaux composant qu’ Azure Arc manage sont les suivant :
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2022/11/image.png?w=975)
 
-1.  Instancier et gérer des services Azure managés (PaaS) hors de Azure :
-2.  Azure Arc enabled data services
-3.  Azure Arc enabled application services
-4.  Azure Arc enabled Machine Learning
-5.  Etendre les outils de gestion et de sécurité d’Azure pour des systèmes hors d’Azure:
-6.  Azure Arc enabled servers
-7.  Azure Arc enabled Kubernetes
-8.  Azure Arc enabled Azure Stack HCI
-9.  Azure Arc enabled VMware vSphere
-10.  Azure Arc enabled SCVMM
+Figure 1 Azure Arc
 
-Je me fais force de vous faire un article pour chaque un de ces éléments, et en fonction de mes moyens.
+Azure Arc n’est pas un produit, mais plutôt une famille de produit permettant une très grande diversité d’approche et de solutions.
 
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-1.png?w=189)
+On pourrais classe Azure ARC en 4 grandes block , en fonction des rôles de chacun .
 
+-   Azure Arc for Developers
+-   Azure Arc for Cloud Solutions Architects
+-   Azure Arc for IT Pros
+-   Azure Arc for Security Engineers
 
-## Step 2 : Les prérequis et leur mise en place.
+Ces grands rôles étant représenté par un ensemble de sous-catégories propres à chacun :
 
-REM : les prérequis cites ci-dessous sont pour la partie Azure Arc Enabled.
+-   Azure Arc Enabled Server
+-   Azure Arc Enabled SQL Server
+-   Azure Arc Enabled Kubernetes
+-   Azure Arc Enabled Azure Stack HCI
+-   Azure Arc Enabled VMware VSphere
+-   Azure Arc Enabled Data services
+-   Azure Arc Enabled application services
+-   Azure Arc Enabled Machine Learning
 
-Lors de la planification de votre déploiement, pensez aux points ci-dessous :
+Les 5 premiers étant la pour étendre les Management Tools d’Azure , sur des systèmes Non-Azure
 
--   Vos machines doivent exécuter un système d’exploitation pris en charge pour l’agent Connected Machine.
--   Vos machines doivent disposer d’une connectivité à partir de votre réseau local ou d’un autre environnement cloud aux ressources Azure, directement ou via un serveur proxy.
--   Pour installer et configurer l’agent Azure Connected Machine, vous devez disposer d’un compte doté de privilèges élevés (c’est-à-dire, administrateur ou racine) sur les machines.
--   Pour intégrer des machines, vous devez avoir le rôle **Intégration Azured’ Connected Machine**.
--   Pour lire, modifier et supprimer une machine, vous devez avoir le rôle **Administrateur de ressources Azure Connected Machine**.
+Les 3 autres permettant d’instancier et de gérer des services Azure managés – Type PaaS , hors d’Azure.
 
-Et bien évidement une Azure Suscription 😉
+Ici , je vais me contenter de vous présenter les 4 grands block, et cela afin de ne pas faire un post imbuvable 😉.
 
-### Environnements pris en charge:
+## Les 4 blocks:
 
-Les serveurs avec Azure Arc prennent en charge l’installation de l’agent Connected Machine sur des serveurs physiques et des machines virtuelles hébergées en dehors d’Azure. Cela comprend la prise en charge des machines virtuelles s’exécutant sur des plateformes comme :
+Cette courte, enfin cela reste relatif, partie présentera les point important de l’apport d’Azure Arc pour ces Master Rôles.
 
--   VMware (y compris Azure VMware Solution)
--   Azure Stack HCI
--   Autres environments cloud
+### Azure Arc for Developers:
 
-REM : Vous ne devez pas installer Azure Arc sur des machines virtuelles hébergées dans Azure, Azure Stack Hub ou Azure Stack Edge, car elles disposent déjà de fonctionnalités similaires.
+Azure Arc et Azure control plane permettent aux développeurs de déployer leur applications en mode Hybrid, et où , multicloud ; leur permettant de gère l’infrastructure et le déployant des service Azure n’importe où, en s’appuyant sur le service Azure Control Plane.
 
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-2.png?w=930)
+Les développeurs pourront utiliser les services Azure dont ils sont familier, comme les WebApps , Azure SQL , et exécuter leur applications à l’extérieur d’Azure.
 
-### Systèmes d’exploitation pris en charge
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2022/11/image-1.png?w=713)
 
-Azure Arc prend en charge les systèmes d’exploitation Windows et Linux suivants. Seules les architectures x86-64 (64 bits) sont prises en charge. Azure Arc ne s’exécute pas sur des architectures x86 (32 bits) ou ARM.
+Figure 2 Azure Arc for Devs
 
--   Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019 et 2022
-    
-    -   Les expériences Desktop et Server Core sont toutes deux prises en charge
-    
-    -   Les éditions Azure sont prises en charge sur Azure Stack HCI
--   Windows 10, 11
--   Windows IoT Entreprise
--   Azure Stack HCI
--   Ubuntu 16.04, 18.04, 20.04 et 22.04 LTS
--   Debian 10 et 11
--   CentOS Linux 7 et 8
--   Rocky Linux 8
--   SUSE Linux Enterprise Server (SLES) 12 et 15
--   Red Hat Enterprise Linux (RHEL) 7, 8 et 9
--   Amazon Linux 2
--   Oracle Linux 7 et 8
+Azure Arc offre des points important pour un développeur :
 
-Cf Microsoft Documentation :
+-   Utilisation d’ Azure Portal pour une vue centralise
+-   Manage Access
+-   Enable your custom deployment locations
+-   Run cloud-native apps on Azure PaaS anywhere
+-   Azure Arc enabled Data Services
+-   CI/CD workflow utilsant GitOps – Azure Arc enabled Kubernetes
+-   Access au Kubernetes Cluster depuis n’importe où
+-   Deployer et utilizer Azure Kubernetes Services (AKS) on-premises sur Azure Stack HCI
+-   Execute Azure Machine Learning de n’importe où
+-   Utiliser Azure Managed Identities on-prem ou d’autre cloud providers
+-   Monitoring
 
-[Connected Machine agent prerequisites – Azure Arc | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-environments)
+Et bien plus.
 
-### Configuration logicielle requise:
+### Azure Arc for IT Pros
 
-Systèmes d’exploitation Windows :
+De la même manière Azure Arc va , pour les It Pro , permettre de simplifié la gouvernance et la gestion via une seule platform des mondes Hybrid ( Onpremise-Cloud) et Multicloud.
 
--   NET Framework 4.6 ou version ultérieure.[](https://learn.microsoft.com/fr-fr/dotnet/framework/install/guide-for-developers)
--   Windows PowerShell version 4.0 ou ultérieure
+Azure Arc permet aux IT Professional (IT Pros) de géré l’ensemble des environnements , avec une seule interface, et cela en utilisant Azure Resource Manager.
 
-Systems exploitation Linux :
+Il est donc possible maintenant de géré les Serveurs, les Kubernetes clusters, les Databases comme si ils étaient sur Azure.
 
--   systemd
--   wget (pour télécharger le script d’installation)
--   openssl
--   Gnupg
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2022/11/image-2.png?w=784)
 
-Cf Microsoft Documentation :
+Figure 3 Azure Arc Monitoring sample for It Pros
 
-[Connected Machine agent prerequisites – Azure Arc | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-environments)
+Point d’intérêt pour les IT Pros :
 
-### Authorizations requises
+-   Utilisation d’ Azure Portal comme point central de gestion
+-   Organization et Inventory
+-   Azure Resource Graph
+-   Manage Access
+-   Update Management
+-   Monitoring
+-   Log collection et analytics
+-   Change Tracking et Inventory
+-   Certificate Management
+-   Security
+-   Running Scripts sur les servers
+-   Gestion du compliance state
+-   Gestion de notre Azure Stack HCI
 
-Vous aurez besoin des rôles intégrés Azure suivants pour différents aspects de la gestion des machines connectées :
+### Azure Arc for Cloud Solutions Architects:
 
--   Pour intégrer des machines, vous devez disposer du rôle **Azure Connected Machine Onboarding** **ou** **Contributor** pour le RG dans lequel vous gérez les serveurs.
--   Pour lire, modifier et supprimer une machine, vous devez être membre du **Azure Connected Machine Resource Administrator** pour le RG.
--   Pour sélectionner un RG dans la liste déroulante lors de l’utilisation de la méthode **Générer un script** , vous avez également besoin du **rôle** **Reader**  pour ce groupe de ressources .
+Azure Arc et Azure Control plane service , permettent au Cloud Solution Architect de définir, et construire des Architecture Hybrid et Multicloud.
 
-### Azure ressource providers
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2022/11/image-3.png?w=674)
 
-Pour utiliser des serveurs Azure Arc, les Azure ressources providers suivants doivent être inscrits dans votre abonnement :
+Figure 4 Azure Arc for Cloud Solution Architect
 
--   **Microsoft.HybridCompute**
--   **Microsoft.GuestConfiguration**
--   **Microsoft.HybridConnectivity**
--   **Microsoft.AzureArcData** (si vous envisagez d’activer Les serveurs SQL)
+Point d’intérêt pour les Cloud Solution Architect :
 
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-5.png?w=697)
+-   Utilisation d’ Azure Portal comme point central de gestion
+-   Organization et Inventory
+-   Azure Resource Graph
+-   Manage Access
+-   custom deployment locations
+-   Exécute les cloud-native apps base sur les Azure PaaS n’importe où
+-   Azure Arc enabled Data Services
+-   CI/CD workflow utilisant GitOps – Azure Arc enabled Kubernetes
+-   Deploy et execute Azure Kubernetes Services (AKS) on-premises sur Azure Stack HCI
+-   Utilise Azure Managed Identities on-prem ou d’autre cloud providers
+-   Execution de Machine Learning n’importe où
+-   Update Management
+-   Monitoring
+-   Log collection et analytics
+-   Change Tracking et Inventory
+-   Certificate Management
+-   Security
+-   Execution des Scripts
+-   Gestion des compliance state
+-   Gestion de notre Azure Stack HCI
 
+L’ensemble de ces points permettant un plus grand choix d’Architecture possible.
 
+### Azure Arc for Security Engineers:
 
-## Step 3 : Deployment Azure Arc enabled server
+The last but not the least
 
-REM: les autres aspects des déploiement d’Azure Arc , serons traite dans mes autres articles.
+Azure Arc , et Azure control plane , vont permettent au Security Engineers de contrôle, maitriser le Cloud Goverance , mais aussi rendre plus sur les environnements Hybride et multiclouds en configurant, contrôlant les aspects Sécurité , Compliance , et cela quel que soit le model Hybrid, Natif ou Multicloud.
 
-### Scenario :
+En cela Azure Arc permet de simplifier les vues de ces différents composant pour une plus grande efficacités.
 
-Il s’agit ici de déployer les agents Azure Arc sur une Server Hyper-V , ou plus précisément sur les VM hébergés sur ce dernier.
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2022/11/image-4.png?w=776)
 
-Il y aura 3 VM :
+Figure 5 Azure Arc sample view for Security Engineers
 
--Windows Server 2019
+-   Utilisation d’ Azure Portal comme point central de gestion
+-   Organization et Inventory
+-   Azure Resource Graph
+-   Manage Access
+-   Update Management
+-   Monitoring
+-   Log collection et analytics
+-   Change Tracking et Inventory
+-   Certificate Management
+-   Security
+-   Compliance State
 
--Windows 10
+## Conclusion:
 
--Linux CentOs
+Azure Arc est un outil complet , et qui permettras de manager beaucoup de composant multi environnement .
 
-### Déroulement Step-By-Step :
-
-Step 1 : Se connecte au portail Azure
-
-Step 2 : sélectionner Azure Arc
-
-Step 3 : Select : “ Add your infra for Free “
-
-Step 4: Select “Add in your Server part”
-
-Step 5 : select “Add Single Server” -> Creation du script pour l’installation sur le Target.
-
-Step 6 : remplir les éléments demande – cf l’image
-
-Step 7 déployer le script sur le Target ( Linux, Windows..)
-
-Step 8 : vérification de l’ajout dans Azure Arc.
-
-#### Déroulement Step-By-Step en Images:
-
-Step 1: Ouvrir le portail Azure
-
-Step 2 : sélectionner Azure Arc
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-6.png?w=975)
-
-Step 3 : Select : “ Add your infra for Free “
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-7.png?w=975)
-
-Step 4: Select “Add in your Server part”
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-8.png?w=975)
-
-Step 5 : select “Add Single Server” -Generate Script.
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-9.png?w=535)
-
-Step 6 : remplir les éléments demande
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-10.png?w=676)
-
-Step 6-1
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-11.png?w=675)
-
-Step 6 -2
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-12.png?w=568)
-
-Step 6 -3
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-13.png?w=570)
-
-Step 6 -4
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-14.png?w=859)
-
-Step 7 déployer le script sur le Target ( Linux, Windows..)
-
-Step 8 : vérification de l’ajout dans Azure Arc
-
-![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-15.png?w=975)
-
-Et voila nous venons de faire un Onboarding de server dans Azure Arc.
-
-Je vous présenterais dans mon Blog Suivant les aspects que Azure Arc permet de faire sur les éléments déployer : Azure Policies, …..
-
-A Bientôt pour continuer la découverte de l’Univers Azure Arc !!
+En cela je vous présenterais les 4 block de manières individuel , mais surtout sur mon retour d’expérience de leur mise en place , je sens que je vais suer. 😉😁
