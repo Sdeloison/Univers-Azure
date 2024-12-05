@@ -52,9 +52,8 @@ Les principaux composant qu’ Azure Arc manage sont les suivant :
 
 Je me fais force de vous faire un article pour chaque un de ces éléments, et en fonction de mes moyens.
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-1.png?w=189)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-1.png?w=189)
 
-_Image 2_
 
 ## Step 2 : Les prérequis et leur mise en place.
 
@@ -80,7 +79,7 @@ Les serveurs avec Azure Arc prennent en charge l’installation de l’agent Con
 
 REM : Vous ne devez pas installer Azure Arc sur des machines virtuelles hébergées dans Azure, Azure Stack Hub ou Azure Stack Edge, car elles disposent déjà de fonctionnalités similaires.
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-2.png?w=930)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-2.png?w=930)
 
 ### Systèmes d’exploitation pris en charge
 
@@ -142,9 +141,9 @@ Pour utiliser des serveurs Azure Arc, les Azure ressources providers suivants do
 -   **Microsoft.HybridConnectivity**
 -   **Microsoft.AzureArcData** (si vous envisagez d’activer Les serveurs SQL)
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-5.png?w=697)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-5.png?w=697)
 
-_Image 4_
+
 
 ## Step 3 : Deployment Azure Arc enabled server
 
@@ -186,45 +185,45 @@ Step 1: Ouvrir le portail Azure
 
 Step 2 : sélectionner Azure Arc
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-6.png?w=975)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-6.png?w=975)
 
 Step 3 : Select : “ Add your infra for Free “
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-7.png?w=975)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-7.png?w=975)
 
 Step 4: Select “Add in your Server part”
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-8.png?w=975)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-8.png?w=975)
 
 Step 5 : select “Add Single Server” -Generate Script.
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-9.png?w=535)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-9.png?w=535)
 
 Step 6 : remplir les éléments demande
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-10.png?w=676)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-10.png?w=676)
 
 Step 6-1
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-11.png?w=675)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-11.png?w=675)
 
 Step 6 -2
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-12.png?w=568)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-12.png?w=568)
 
 Step 6 -3
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-13.png?w=570)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-13.png?w=570)
 
 Step 6 -4
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-14.png?w=859)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-14.png?w=859)
 
 Step 7 déployer le script sur le Target ( Linux, Windows..)
 
 Step 8 : vérification de l’ajout dans Azure Arc
 
-![](https://universazure.fr/wp-content/uploads/2023/03/image-15.png?w=975)
+![](https://github.com/Sdeloison/Univers-Azure/blob/main/assets/2023/03/image-15.png?w=975)
 
 Et voila nous venons de faire un Onboarding de server dans Azure Arc.
 
