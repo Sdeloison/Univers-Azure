@@ -8,10 +8,12 @@ Blog on Azure Univers and it is Mystery !
 ## Contents : The Differents parts of my Blog
 
 - [Azure Arc]
-  
+- [Azure Arc](Azure-Arc/introduction.md#introduction)
 - [Azure Sentinel](Azure-Sentinel/introduction.md#introduction)
-- [Machine Learning Basics](content/blog_post_2.md#introduction)
-- [My Thoughts on AI](content/blog_post_3.md#introduction)
+- [Azure FinOps](Azure-Sentinel/introduction.md#introduction)  
+- [My Friends Articles](Azure-Sentinel/introduction.md#introduction)
+- [Azure Arc Workshop](content/blog_post_2.md#introduction)
+- [Azure Sentinel Workshop](content/blog_post_3.md#introduction)
 
 ## How to Navigate the Blog
 
