@@ -7,7 +7,7 @@ Blog on Azure Univers and it is Mystery !
 
 
 
-- [Azure Arc](content/introduction.md#introduction)
+- [Azure Arc](Univers-Azure/introduction.md#introduction)
 - [Machine Learning Basics](content/blog_post_2.md#introduction)
 - [My Thoughts on AI](content/blog_post_3.md#introduction)
 
