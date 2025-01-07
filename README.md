@@ -5,9 +5,7 @@ Blog on Azure Univers and it is Mystery !
 
 ## Contents : The Differents parts of my Blog
 
-
-
-- [Azure Arc](Azure-Arc/introduction.md#introduction)
+- [Azure Arc](Azure-Arc/Azure Arc pour les Nuls.md)
 - [Machine Learning Basics](content/blog_post_2.md#introduction)
 - [My Thoughts on AI](content/blog_post_3.md#introduction)
 
