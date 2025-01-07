@@ -7,8 +7,8 @@ Blog on Azure Univers and it is Mystery !
 
 ## Contents : The Differents parts of my Blog
 
-- [Azure Arc]
-- [Azure Arc](main/Azure-Arc/introduction.md#introduction)
+
+- [Azure Arc](Azure-Arc/)
 - [Azure Sentinel](Azure-Sentinel/introduction.md#introduction)
 - [Azure FinOps](Azure-Sentinel/introduction.md#introduction)  
 - [My Friends Articles](Azure-Sentinel/introduction.md#introduction)
