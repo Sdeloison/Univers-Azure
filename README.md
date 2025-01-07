@@ -9,10 +9,10 @@ Blog on Azure Univers and it is Mystery !
 
 
 - [Azure Arc](Azure-Arc/)
-- [Azure Sentinel](Azure-Sentinel/introduction.md#introduction)
-- [Azure FinOps](Azure-Sentinel/introduction.md#introduction)  
-- [My Friends Articles](Azure-Sentinel/introduction.md#introduction)
-- [Azure Arc Workshop](content/blog_post_2.md#introduction)
+- [Azure Sentinel](Azure-Sentinel/)
+- [Azure FinOps](Azure-Sentinel/)  
+- [My Friends Articles](My-Friends-Articles/)
+- [Azure Arc Workshop](Azure_Arc_Wks/)
 - [Azure Sentinel Workshop](content/blog_post_3.md#introduction)
 
 ## How to Navigate the Blog
