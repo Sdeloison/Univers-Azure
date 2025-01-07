@@ -9,7 +9,7 @@ Blog on Azure Univers and it is Mystery !
 
 - [Azure Arc]
   
-- [Azure Arc](Azure-Sentinel/introduction.md#introduction)
+- [Azure Sentinel](Azure-Sentinel/introduction.md#introduction)
 - [Machine Learning Basics](content/blog_post_2.md#introduction)
 - [My Thoughts on AI](content/blog_post_3.md#introduction)
 
